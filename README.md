@@ -1,8 +1,11 @@
 ​DESCRIPTION
+
 Car Rentals and Services is an Application that manages the data of the customers. It helps organize the transaction between the customer and the company
 
 ● PYTHON VERSION: 3.12
+
 ● VENV PACKAGES: Pillow, mysql-connector
+
 ● Color Theme: Shades of Purple🦄
 
 Samples:
