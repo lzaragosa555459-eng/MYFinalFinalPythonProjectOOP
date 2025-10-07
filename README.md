@@ -9,6 +9,7 @@ Car Rentals and Services is an Application that manages the data of the customer
 ● Color Theme: Shades of Purple🦄
 
 Samples:
+
 https://github.com/user-attachments/assets/0a66e3bc-d7ec-4e6c-a235-4cb755c061df
 
 
