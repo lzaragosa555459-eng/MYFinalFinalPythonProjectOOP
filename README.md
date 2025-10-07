@@ -24,6 +24,7 @@ TO DOWNLOAD:
 <img width="528" height="110" alt="image" src="https://github.com/user-attachments/assets/b2c037ae-d089-4e34-9d8d-dd5026481945" />
 
 Note: Make sure that all the files should be in one folder. excluding the car.png, its your choice whether to put it in the folder or not.
+
 TO START:
 1. First to run is the LoginPage.py. To go to Admin -> [username: Admin] [password: 1234] To go to Customer Form -> [username: Liz Zaragosa] [password: 217]
 
