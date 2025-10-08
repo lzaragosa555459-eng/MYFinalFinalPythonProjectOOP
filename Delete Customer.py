@@ -114,4 +114,5 @@ class CustomerFrame(tk.Frame):
         DeleteButton.grid(row=4, column=1, padx=10, pady=10)
 
     
+
         load(table)
