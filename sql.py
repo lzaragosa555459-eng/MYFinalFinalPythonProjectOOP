@@ -88,7 +88,8 @@ def loadVehicle(tableVehicle):
         tableVehicle.insert("","end",values=row)
 
 def add_to_table(table,id,name,email,phone): 
-     
+    answer = messagebox.askokcancel("Confirm","Do you want to add data?")
+    if answer:
             if name and id:
                 table.insert("","end", values=(id, name))
         
@@ -100,8 +101,11 @@ def add_to_table(table,id,name,email,phone):
                 db.commit()
                 load(table)
             return id, name, email, phone
+    else:
+        print("Customer cancels...")
 def add_to_table1(tablePayment,id,method,payment,amount,rental): 
-     
+    answer = messagebox.askokcancel("Confirm","Do you want to add data?")
+    if answer:
             if method and id:
                 tablePayment.insert("","end", values=(id, method))
         
@@ -114,9 +118,11 @@ def add_to_table1(tablePayment,id,method,payment,amount,rental):
                 db.commit()
                 loadPayment(tablePayment)
             return id,method,payment,amount,rental
-
-def  add_to_table2(tableRentals,id,rentalDate,returnDate,customerid,vehicleid): 
-     
+    else:
+        print("Customer cancels...")
+def  add_to_table2(tableRentals,id,rentalDate,returnDate,customerid,vehicleid):
+    answer = messagebox.askokcancel("Confirm","Do you want to add data?")
+    if answer:
             if rentalDate and id:
                 tableRentals.insert("","end", values=(id, rentalDate))
         
@@ -128,8 +134,11 @@ def  add_to_table2(tableRentals,id,rentalDate,returnDate,customerid,vehicleid):
                 db.commit()
                 loadRentals(tableRentals)
             return id,rentalDate,returnDate,customerid,vehicleid
+    else:
+        print("Customer cancels...")
 def  add_to_table3(tableVehicle,id,types,make,model,totalcost):
-     
+    answer = messagebox.askokcancel("Confirm","Do you want to add data?")
+    if answer:
             if types and id:
                 tableVehicle.insert("","end", values=(id, types))
         
@@ -141,68 +150,98 @@ def  add_to_table3(tableVehicle,id,types,make,model,totalcost):
                 db.commit()
                 loadVehicle(tableVehicle)
             return id,types,make,model,totalcost
-def Delete(table):
-    select_item = table.focus()
-    value = table.item(select_item)["values"][0]
-    cursor.execute("Delete from customer where CustomerID = %s",[value])
-    db.commit()
-    print("Deleted successful",value)
-    load(table)
-
-def Delete1(tablePayment):
-    select_item = tablePayment.focus()
-    value = tablePayment.item(select_item)["values"][0]
-    cursor.execute("Delete from Payment where PaymentID = %s",[value])
-    db.commit()
-    print("Deleted successful",value)
-    loadPayment(tablePayment)
-
-def Delete2(tableRentals):
-    select_item = tableRentals.focus()
-    value = tableRentals.item(select_item)["values"][0]
-    cursor.execute("Delete from rental where RentalID = %s",[value])
-    db.commit()
-    print("Deleted successful",value)
-    loadRentals(tableRentals)
-
-def Delete3(tableVehicle):
-    select_item = tableVehicle.focus()
-    value = tableVehicle.item(select_item)["values"][0]
-    cursor.execute("Delete from vehicle where VehicleID = %s",[value])
-    db.commit()
-    print("Deleted successful",value)
-    loadVehicle(tableVehicle)
-
-def Update(table,name_var,email_var,phone_var,id_var,selected_id):
-    if selected_id:
-        cursor.execute("UPDATE customer set CustomerID = %s, Name = %s, Email = %s, Phone = %s WHERE CustomerID = %s",(id_var.get(),name_var.get(),email_var.get(),phone_var.get(),id_var.get()))
-        db.commit()
     else:
-        print("No row selected")
-    load(table)
+        print("Customer cancels...")
+def Delete(table):
+    answer = messagebox.askokcancel("Confirmation","Are you sure you want to delete this row?")
+    if answer:
+        select_item = table.focus()
+        value = table.item(select_item)["values"][0]
+        cursor.execute("Delete from customer where CustomerID = %s",[value])
+        db.commit()
+        print("Deleted successful",value)
+        load(table)
+    else:
+        print("Customer cancels...")
+def Delete1(tablePayment):
+    answer = messagebox.askokcancel("Confirmation","Are you sure you want to delete this row?")
+    if answer:
+        select_item = tablePayment.focus()
+        value = tablePayment.item(select_item)["values"][0]
+        cursor.execute("Delete from Payment where PaymentID = %s",[value])
+        db.commit()
+        print("Deleted successful",value)
+        loadPayment(tablePayment)
+    else:
+        print("Customer cancels...")
+def Delete2(tableRentals):
+    answer = messagebox.askokcancel("Confirmation","Are you sure you want to delete this row?")
+    if answer:
+        select_item = tableRentals.focus()
+        value = tableRentals.item(select_item)["values"][0]
+        cursor.execute("Delete from rental where RentalID = %s",[value])
+        db.commit()
+        print("Deleted successful",value)
+        loadRentals(tableRentals)
+    else:
+        print("Customer cancels...")
+def Delete3(tableVehicle):
+    answer = messagebox.askokcancel("Confirmation","Are you sure you want to delete this row?")
+    if answer:
+        select_item = tableVehicle.focus()
+        value = tableVehicle.item(select_item)["values"][0]
+        cursor.execute("Delete from vehicle where VehicleID = %s",[value])
+        db.commit()
+        print("Deleted successful",value)
+        loadVehicle(tableVehicle)
+    else:
+        print("Customer cancels...")
+def Update(table,name_var,email_var,phone_var,id_var,selected_id):
+    answer = messagebox.askokcancel("Confirmation","Are you sure you want to delete this row?")
+    if answer:
+        if selected_id:
+            cursor.execute("UPDATE customer set CustomerID = %s, Name = %s, Email = %s, Phone = %s WHERE CustomerID = %s",(id_var.get(),name_var.get(),email_var.get(),phone_var.get(),id_var.get()))
+            db.commit()
+        else:
+            print("No row selected")
+        load(table)
+    else:
+        print("Customer cancels...")
 
 def Update1(tablePayment,paymentid_var,paymentMethod_var,Date_var,amount_var,rental_var,selected_id):
-    if selected_id:
-        cursor.execute("UPDATE Payment set PaymentID = %s, PaymentMethod = %s, PaymentDate = %s, Amount = %s, RentalID = %s WHERE PaymentID = %s",(paymentid_var.get(),paymentMethod_var.get(),Date_var.get(),amount_var.get(),rental_var.get(),paymentid_var.get()))
-        db.commit()
+    answer = messagebox.askokcancel("Confirmation","Are you sure you want to delete this row?")
+    if answer:
+        if selected_id:
+            cursor.execute("UPDATE Payment set PaymentID = %s, PaymentMethod = %s, PaymentDate = %s, Amount = %s, RentalID = %s WHERE PaymentID = %s",(paymentid_var.get(),paymentMethod_var.get(),Date_var.get(),amount_var.get(),rental_var.get(),paymentid_var.get()))
+            db.commit()
+        else:
+            print("No row selected")
+        loadPayment(tablePayment)
     else:
-        print("No row selected")
-    loadPayment(tablePayment)
-
+        print("Customer cancels...")
 def Update2(tableRentals,rentalid_var,rentaldate_var,returndate_var,customerid_var,vehicleid_var,selected_id):
-    if selected_id:
-        cursor.execute("UPDATE rental set RentalID = %s, RentalDate = %s, ReturnDate = %s, CustomerID = %s, VehicleID = %s WHERE RentalID = %s",(rentalid_var.get(),rentaldate_var.get(),returndate_var.get().get(),customerid_var.get(),vehicleid_var.get(),rentalid_var.get()))
-        db.commit()
+    answer = messagebox.askokcancel("Confirmation","Are you sure you want to delete this row?")
+    if answer:
+        if selected_id:
+            cursor.execute("UPDATE rental set RentalID = %s, RentalDate = %s, ReturnDate = %s, CustomerID = %s, VehicleID = %s WHERE RentalID = %s",(rentalid_var.get(),rentaldate_var.get(),returndate_var.get().get(),customerid_var.get(),vehicleid_var.get(),rentalid_var.get()))
+            db.commit()
+        else:
+            print("No row selected")
+        loadRentals(tableRentals)
     else:
-        print("No row selected")
-    loadRentals(tableRentals)
+        print("Customer cancels...")
 def Update3(tableVehicle,type_var,make_var,model_var,vehicleid_var,totalcost_var,selected_id):
-    if selected_id:
-        cursor.execute("UPDATE vehicle set VehicleID = %s, Type = %s, Make = %s, Model = %s, totalcost = %s WHERE VehicleID = %s",(vehicleid_var.get(),type_var.get(),make_var.get(),model_var.get(),totalcost_var.get(),vehicleid_var.get()))
-        db.commit()
+    answer = messagebox.askokcancel("Confirmation","Are you sure you want to delete this row?")
+    if answer:
+        if selected_id:
+            cursor.execute("UPDATE vehicle set VehicleID = %s, Type = %s, Make = %s, Model = %s, totalcost = %s WHERE VehicleID = %s",(vehicleid_var.get(),type_var.get(),make_var.get(),model_var.get(),totalcost_var.get(),vehicleid_var.get()))
+            db.commit()
+        else:
+            print("No row selected")
+        loadVehicle(tableVehicle)
     else:
-        print("No row selected")
-    loadVehicle(tableVehicle)
+        print("Customer cancels...")
+
 
 
 
