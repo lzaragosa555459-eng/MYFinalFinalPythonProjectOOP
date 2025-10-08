@@ -22,7 +22,7 @@ def reports(table):
         table.insert("","end",values=row) 
 
 def CustomerForm(name,email,phone,paymethod,paymentdate,amount,rentaldate,returndate,model):
-    answer = messagebox.askyesno("Confirm","You want to rent a vehicle?")
+    answer = messagebox.askyesno("Confirm","Do you want to rent a vehicle?")
     if answer:
         print("Customer proceeds...")
         cursor.execute("INSERT INTO customer (name,email,phone) values (%s,%s,%s)",(name,email,phone))
@@ -241,6 +241,7 @@ def Update3(tableVehicle,type_var,make_var,model_var,vehicleid_var,totalcost_var
         loadVehicle(tableVehicle)
     else:
         print("Customer cancels...")
+
 
 
 
