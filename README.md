@@ -36,7 +36,7 @@ Revisions:
 3. Changed button colors in the admin into white.
 4. Added Calendar picker in the Costumer Form.
 5. The labels in the admin are now left aligned.
-6. The file structure is organized
+6. The file structure is organized.
 7. Deleted the add button in the admin to prevent the deleting error on the data.
 
 
