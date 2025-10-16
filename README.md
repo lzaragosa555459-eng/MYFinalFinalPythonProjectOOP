@@ -31,7 +31,7 @@ TO START:
 
 
 Revisions:
-1. Table in Record is in now big.
+1. Table in History is in now big.
 2. Added Hover in the Admin Buttons.
 3. Changed button colors in the admin into white.
 4. Added Calendar picker in the Costumer Form.
