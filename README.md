@@ -30,6 +30,13 @@ TO START:
 
 
 
-
+Revisions:
+1. Table in Record in now big.
+2. added Hover in the Admin Buttons.
+3. changed button colors in the admin into white.
+4. added Calendar picker in the Costumer Form.
+5. The labels in the admin are now left aligned.
+6. The file structure is organized
+7. Deleted the add button in the admin to prevent the deleting error on the data.
 
 
